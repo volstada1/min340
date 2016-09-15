@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Lab 2: Angie's Quiz </title>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <link rel="stylesheet" href="quizmain.css">
+    </head>
+    
+    <body>
+        
+        <h4>Hello! What is your name?</h4>
+        
+        <div id="hello"></div>
+        <input id="input" type="text" placeholder="Enter your name here" />
+        <button id="enterBTN" > ENTER </button>
+        
+<!--        <p id="output"></p>-->
+    
+        <div id="intro"> 
+            <h4> Welcome to Angie's MIN340 Personality test for fun! </h4>    
+            <p>Angie loves the anime movies by Hayao Miyazaki. She loves recommending them for anyone who has never watched them before.
+            </p>
+            <h4>Do you want to try?</h4>
+            <button id="yesButton"> yes! </button>
+        </div>
+            
+        <div id="question">
+            <p>What kind of adventure would you love to go on? Find out which character you are based on your choice! <em>Please select one choice.</em></p>    
+            
+            <h4>Do you want to...</h4> 
+                 
+            <button id="choiceButton1">A. Search for a secret city</button> <br>
+            <button id="choiceButton2">B. Deliver goodies while flying a broomstick</button> <br>
+            <button id="choiceButton3">C. Defend the home of an ancient forest god</button> <br>
+            <button id="choiceButton4">D. Explore a world inhabited by spirits</button> <br>
+        </div>
+        
+        <p id="personality1">
+        You are Sheeta from Castle in the Sky!    
+        </p>
+        
+        <p id="personality2">
+        You are Kiki from Kiki's Delivery Service!    
+        </p>
+        
+        <p id="personality3">
+        You are Ashitaka from Princess Mononoke!    </p>
+        
+        <p id="personality4">
+        You are Chihiro from Spirited Away!        </p>
+                   
+    </body> 
+    
+    <script>
+
+        var myHello = document.querySelector("#hello");
+            myHello.style.display = "none";
+        
+        var myInput = document.querySelector("#input");
+        
+        var myButton1= document.querySelector("#enterBTN");
+            myButton1.addEventListener("click", clickHandler1, false);
+            myButton1.style.cursor = "pointer";
+        
+        var myIntro = document.querySelector("#intro");
+            myIntro.style.display = "none";
+        
+        var myButton2 = document.querySelector("#yesButton");
+            myButton2.style.display = "none";
+            myButton2.addEventListener("click", clickHandler2, false);
+            myButton2.style.cursor = "pointer";
+        
+        function clickHandler1() {
+            myIntro.style.display = "block";
+            myHello.innerHTML = "Hi " + myInput.value + "!";  
+            myButton1.removeEventListener("click", clickHandler1, false);
+            myHello.style.display = "block";
+            myButton2.style.display = "block";
+        }
+        
+        var myQuestion = document.querySelector("#question");
+            myQuestion.style.display = "none";
+        
+        var myChoice1 = document.querySelector("#choiceButton1");
+            myChoice1.style.display = "none";
+            myChoice1.addEventListener("click", clickHandler3, false);
+            
+        var myChoice2 = document.querySelector("#choiceButton2");
+            myChoice2.style.display = "none";
+            myChoice2.addEventListener("click", clickHandler4, false);
+            
+        var myChoice3 = document.querySelector("#choiceButton3");
+            myChoice3.style.display = "none";
+            myChoice3.addEventListener("click", clickHandler5, false);
+            
+        var myChoice4 = document.querySelector("#choiceButton4");
+            myChoice4.style.display = "none";
+            myChoice4.addEventListener("click", clickHandler6, false);
+        
+        function clickHandler2() {
+            myButton2.removeEventListener("click", clickHandler2, false);
+            myQuestion.style.display = "block";
+            myChoice1.style.display = "block";
+            myChoice2.style.display = "block";
+            myChoice3.style.display = "block";
+            myChoice4.style.display = "block";
+        }
+        
+        function clickHandler3() {
+            myChoice1.removeEventListener("click", clickHandler3, false);
+            myPersonality1.style.display = "block";
+            myChoice2.style.display = "none";
+            myChoice3.style.display = "none";
+            myChoice4.style.display = "none";
+        }
+        
+        function clickHandler4() {
+            myChoice2.removeEventListener("click", clickHandler4, false);
+            myPersonality2.style.display = "block";
+            myChoice1.style.display = "none";
+            myChoice3.style.display = "none";
+            myChoice4.style.display = "none";
+        }
+        
+        function clickHandler5() {
+            myChoice3.removeEventListener("click", clickHandler5, false);
+            myPersonality3.style.display = "block";
+            myChoice1.style.display = "none";
+            myChoice2.style.display = "none";
+            myChoice4.style.display = "none";
+        }
+        
+        function clickHandler6() {
+            myChoice4.removeEventListener("click", clickHandler6, false);
+            myPersonality4.style.display = "block";
+            myChoice1.style.display = "none";
+            myChoice2.style.display = "none";
+            myChoice3.style.display = "none";
+        }
+        
+        var myPersonality1 = document.querySelector("#personality1");
+            myPersonality1.style.display = "none";
+        var myPersonality2 = document.querySelector("#personality2");
+            myPersonality2.style.display = "none";
+        var myPersonality3 = document.querySelector("#personality3");
+            myPersonality3.style.display = "none";
+        var myPersonality4 = document.querySelector("#personality4");
+            myPersonality4.style.display = "none";
+
+        
+    </script>
+    
+</html>
